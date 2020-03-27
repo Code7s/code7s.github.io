@@ -1,6 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>axios安装与使用</title>
+    <url>/axios/</url>
+    <content><![CDATA[<h2 id="什么是axios"><a href="#什么是axios" class="headerlink" title="什么是axios?"></a>什么是axios?</h2><blockquote>
+<p>axios （<a href="https://github.com/axios/axios" target="_blank" rel="noopener">官网</a>） 是一个基于Promise的HTTP库，可用在浏览器和node.js中，它有以下特点：</p>
+<ul>
+<li>从浏览器中创建 <a href="https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest" target="_blank" rel="noopener">XMLHttpRequests</a></li>
+<li>从 node.js 创建 <a href="http://nodejs.org/api/http.html" target="_blank" rel="noopener">http</a> 请求</li>
+<li>支持 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise" target="_blank" rel="noopener">Promise</a> API</li>
+<li>拦截请求和响应</li>
+<li>转换请求数据和响应数据</li>
+<li>取消请求</li>
+<li>自动转换 JSON 数据</li>
+<li>客户端支持防御 <a href="http://en.wikipedia.org/wiki/Cross-site_request_forgery" target="_blank" rel="noopener">XSRF</a></li>
+</ul>
+</blockquote>
+<h2 id="安装与使用"><a href="#安装与使用" class="headerlink" title="安装与使用"></a>安装与使用</h2><p>安装：</p>
+<figure class="highlight cmd"><table><tr><td class="code"><pre><span class="line">$ npm install axios</span><br></pre></td></tr></table></figure>
+
+<p>常用api：</p>
+<blockquote>
+<p>get： 查询数据、post： 添加数据、put： 修改数据、delete： 删除数据</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">axios.get(<span class="string">'url'</span>).then(<span class="function"><span class="params">ret</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(ret.data)</span><br><span class="line">  <span class="comment">//data属性名是固定的用于获取后台响应的数据</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="axios传递参数"><a href="#axios传递参数" class="headerlink" title="axios传递参数"></a>axios传递参数</h2><h3 id="get传递参数"><a href="#get传递参数" class="headerlink" title="get传递参数"></a>get传递参数</h3><p>通过url传递参数</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">axios.get(<span class="string">'/url?id=123'</span>).then(...)</span><br><span class="line">axios.get(<span class="string">'/url/123'</span>).then(...)</span><br></pre></td></tr></table></figure>
+
+<p>通过params选项传递参数</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">axios.get(<span class="string">'/url'</span>,&#123;</span><br><span class="line">  params: &#123;<span class="attr">id</span>:<span class="number">123</span>&#125;</span><br><span class="line">&#125;).then(...)</span><br></pre></td></tr></table></figure>
+
+<p><strong>delete传递参数使用方法和get一样</strong></p>
+<h3 id="post传递参数"><a href="#post传递参数" class="headerlink" title="post传递参数"></a>post传递参数</h3><p>通过选项传递参数（默认json格式）</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">axios.post(<span class="string">'/url'</span>,&#123;</span><br><span class="line">  uname: <span class="string">'tom'</span></span><br><span class="line">  pwd: <span class="number">123456</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>通过URLSearchParams传递参数（application/x-www-form-urlencoded）</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> params=<span class="keyword">new</span> URLSearchParams();</span><br><span class="line">params.append(<span class="string">'param1'</span>,<span class="string">'value1'</span>);</span><br><span class="line">params.append(<span class="string">'param2'</span>,<span class="string">'value2'</span>);</span><br><span class="line">axios.post(<span class="string">'/url'</span>,params).then(...)</span><br></pre></td></tr></table></figure>
+
+<p><strong>put传递参数使用方法和post一样</strong></p>
+<h2 id="响应结果"><a href="#响应结果" class="headerlink" title="响应结果"></a>响应结果</h2><blockquote>
+<p>data：实际响应回来的数据</p>
+<p>headers：响应头信息</p>
+<p>status：响应状态码</p>
+<p>statusText：响应状态信息</p>
+</blockquote>
+<p>使用axios返回的<code>“类json”</code> 数据会自动转换成json格式无需自己转</p>
+<h2 id="全局配置"><a href="#全局配置" class="headerlink" title="全局配置"></a>全局配置</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 超时时间</span></span><br><span class="line">axios.defaults.timeout=<span class="number">3000</span>; </span><br><span class="line"><span class="comment">// 默认地址</span></span><br><span class="line">axios.defaults.baseURL=<span class="string">'http://www.xxx.com'</span></span><br><span class="line"><span class="comment">// 设置请求头</span></span><br><span class="line">axios.defaults.headers[<span class="string">'mytoken'</span>]=<span class="string">'xxxxxx'</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="拦截器"><a href="#拦截器" class="headerlink" title="拦截器"></a>拦截器</h2><h3 id="请求拦截器"><a href="#请求拦截器" class="headerlink" title="请求拦截器"></a>请求拦截器</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 添加请求拦截器</span></span><br><span class="line">axios.interceptors.request.use(<span class="function"><span class="keyword">function</span>(<span class="params">config</span>)</span>&#123;</span><br><span class="line">  <span class="comment">// 发请求前设置一些信息</span></span><br><span class="line">  <span class="keyword">return</span> config；</span><br><span class="line">&#125;，<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line">  <span class="comment">// 处理响应的错误信息 </span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="响应拦截器"><a href="#响应拦截器" class="headerlink" title="响应拦截器"></a>响应拦截器</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 添加响应拦截器</span></span><br><span class="line">axios.interceptors.response.use(<span class="function"><span class="keyword">function</span>(<span class="params">res</span>)</span>&#123;</span><br><span class="line">  <span class="comment">// 处理返回的数据</span></span><br><span class="line">  <span class="keyword">return</span> res；</span><br><span class="line">&#125;，<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line">  <span class="comment">// 处理响应的错误信息 </span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="async-await"><a href="#async-await" class="headerlink" title="async/await"></a>async/await</h2><blockquote>
+<ul>
+<li>async/await是ES7引入的新语法，可以更方便异步操作</li>
+<li>async关键字用于函数上（async函数的返回值上promise实例对象）</li>
+<li>await关键字用于async函数中（await可以得到异步的结果）</li>
+</ul>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">fn1</span>(<span class="params">id</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">const</span> ret= <span class="keyword">await</span> axios.get(<span class="string">'/url'</span>);</span><br><span class="line">  <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line">fn1.then(<span class="function"><span class="params">ret</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(ret);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>前端工具</category>
+      </categories>
+      <tags>
+        <tag>axios</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Promise总结</title>
     <url>/Promise/</url>
     <content><![CDATA[<h2 id="什么是promise？"><a href="#什么是promise？" class="headerlink" title="什么是promise？"></a>什么是promise？</h2><blockquote>
@@ -155,9 +224,9 @@
         <category>博客搭建</category>
       </categories>
       <tags>
+        <tag>Github</tag>
         <tag>Hexo</tag>
         <tag>博客</tag>
-        <tag>Github</tag>
       </tags>
   </entry>
   <entry>
@@ -977,9 +1046,9 @@
         <category>博客搭建</category>
       </categories>
       <tags>
+        <tag>Github</tag>
         <tag>Hexo</tag>
         <tag>博客</tag>
-        <tag>Github</tag>
       </tags>
   </entry>
 </search>
