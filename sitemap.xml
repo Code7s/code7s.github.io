@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.code7s.com/about/index.html</loc>
+    
+    <lastmod>2020-03-27T16:52:01.309Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.code7s.com/axios/</loc>
     
     <lastmod>2020-03-27T16:20:56.827Z</lastmod>
@@ -33,13 +40,6 @@
     <loc>https://www.code7s.com/iterm2%E7%BB%88%E7%AB%AF%E9%85%8D%E7%BD%AE/</loc>
     
     <lastmod>2019-11-30T16:04:51.500Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.code7s.com/about/index.html</loc>
-    
-    <lastmod>2019-11-26T16:10:24.343Z</lastmod>
     
   </url>
   
