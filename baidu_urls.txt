@@ -1,3 +1,4 @@
+https://www.code7s.com/Promise/
 https://www.code7s.com/vue组件总结/
 https://www.code7s.com/iterm2终端配置/
 https://www.code7s.com/Hexo同时提交到Github和Conding/

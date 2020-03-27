@@ -1,6 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Promise总结</title>
+    <url>/Promise/</url>
+    <content><![CDATA[<h2 id="什么是promise？"><a href="#什么是promise？" class="headerlink" title="什么是promise？"></a>什么是promise？</h2><blockquote>
+<p>promise是用来解决异步操作回调地狱问题的，它有三种状态：</p>
+<ol>
+<li>pending: 初始状态，既不是成功，也不是失败状态。</li>
+<li>resolved: 意味着操作成功完成。</li>
+<li>rejected: 意味着操作失败。</li>
+</ol>
+</blockquote>
+<h2 id="基本用法："><a href="#基本用法：" class="headerlink" title="基本用法："></a>基本用法：</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> p=<span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve,reject</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> flag=<span class="literal">true</span>;</span><br><span class="line">  <span class="keyword">if</span>(flag)&#123;</span><br><span class="line">    <span class="keyword">return</span> resolve(<span class="string">"成功信息"</span>)</span><br><span class="line">  &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> reject(<span class="string">"失败信息"</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line">p.then(</span><br><span class="line">  <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 第一个函数接收成功信息，如果promise返回的是resolve则调用此函数</span></span><br><span class="line">    <span class="built_in">console</span>.log(data) <span class="comment">// "成功信息"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 第二个函数接收失败信息，如果promise返回的是reject则调用此函数，此函数可以省略用catch()接收失败信息</span></span><br><span class="line">    <span class="built_in">console</span>.log(data)</span><br><span class="line">  &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h2 id="实例方法"><a href="#实例方法" class="headerlink" title="实例方法:"></a>实例方法:</h2><blockquote>
+<p>then()、catch()、finally()</p>
+<p>这里的finally()不是标准方法</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> p=<span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve,reject</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> flag=<span class="literal">true</span>;</span><br><span class="line">  <span class="keyword">if</span>(flag)&#123;</span><br><span class="line">    <span class="keyword">return</span> resolve(<span class="string">"成功信息"</span>)</span><br><span class="line">  &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> reject(<span class="string">"失败信息"</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line">p.then(<span class="function">(<span class="params">data</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="comment">//成功调用这里</span></span><br><span class="line">&#125;).catch(<span class="function">(<span class="params">data</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="comment">//失败调用这里</span></span><br><span class="line">&#125;).finally(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="comment">//不管成功还是失败都会调用这里</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="对象方法："><a href="#对象方法：" class="headerlink" title="对象方法："></a>对象方法：</h2><blockquote>
+<ul>
+<li><p>Promise.all()</p>
+<p>接收一个Promise对象组成的数组作为参数，当这个数组里的所有Promise对象全部变为resolve的时候，该方法才返回resolve状态结果。但如果数组中有一个Promise对象为reject的话，则直接返回reject状态结果</p>
+</li>
+<li><p>Promise.race()</p>
+<p>使用方法和Promise.all一样，接收一个Promise对象组成的数组为参数。只要其中一个Promise对象变为Resolved或者Rejected状态，该方法直接返回相应状态的结果，进行后面的处理。</p>
+</li>
+</ul>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> p1=<span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">res,rej</span>)=&gt;</span>&#123;</span><br><span class="line">  setTimeout(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">    res(<span class="string">'a'</span>);</span><br><span class="line">  &#125;,<span class="number">1000</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">var</span> p2=<span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">res,rej</span>)=&gt;</span>&#123;</span><br><span class="line">  setTimeout(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">    res(<span class="string">'b'</span>);</span><br><span class="line">  &#125;,<span class="number">150</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">var</span> p3=<span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">res,rej</span>)=&gt;</span>&#123;</span><br><span class="line">  setTimeout(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">    res(<span class="string">'c'</span>);</span><br><span class="line">  &#125;,<span class="number">500</span>)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">var</span> pro1=<span class="built_in">Promise</span>.all([p1,p2,p3]);</span><br><span class="line">pro1.then(<span class="function"><span class="params">data</span>=&gt;</span><span class="built_in">console</span>.log(data)) <span class="comment">//["a", "b", "c"]</span></span><br><span class="line"><span class="keyword">var</span> pro2=<span class="built_in">Promise</span>.race([p1,p2,p3]);</span><br><span class="line">pro2.then(<span class="function"><span class="params">data</span>=&gt;</span><span class="built_in">console</span>.log(pp)) </span><br><span class="line"><span class="comment">// 这里由于是p2先执行，返回的是resolve，所以结果为：Promise &#123;&lt;resolved&gt;: "b"&#125;</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>javascript</category>
+      </categories>
+      <tags>
+        <tag>javascript</tag>
+        <tag>Promise</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>vue组件总结</title>
     <url>/vue%E7%BB%84%E4%BB%B6%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<h2 id="组件注册"><a href="#组件注册" class="headerlink" title="组件注册"></a>组件注册</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//1.定义全局组件</span></span><br><span class="line">Vue.component(<span class="string">'myComponent'</span>,Vue.extend(template:<span class="string">'&lt;div&gt;xxxx&lt;/div&gt;'</span>))</span><br><span class="line"><span class="comment">//这种写法相当于(此时会自动调用Vue.extend()方法)：</span></span><br><span class="line">Vue.component(<span class="string">'myComponent'</span>，&#123;<span class="attr">template</span>:<span class="string">'&lt;div&gt;xxxx&lt;/div&gt;'</span>&#125;)</span><br><span class="line"><span class="comment">//2.定义私有组件</span></span><br><span class="line"><span class="keyword">var</span> vm=<span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el:<span class="string">'#app'</span>,</span><br><span class="line">  components:&#123;</span><br><span class="line">    ‘myComponent’:&#123;</span><br><span class="line">      template:<span class="string">'&lt;div&gt;xxxx&lt;/div&gt;'</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
