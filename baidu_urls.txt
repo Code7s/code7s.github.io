@@ -7,7 +7,6 @@ https://www.code7s.com/Hexo同时提交到Github和Conding/
 https://www.code7s.com/Mac下如何修改hosts文件/
 https://www.code7s.com/git指令总结/
 https://www.code7s.com/webpack学习总结/
-https://www.code7s.com/webpack4.x初次打包/
 https://www.code7s.com/Bootstrap/
 https://www.code7s.com/7/
 https://www.code7s.com/6/
