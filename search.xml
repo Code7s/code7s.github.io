@@ -1,6 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>移动端适配</title>
+    <url>/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%80%82%E9%85%8D/</url>
+    <content><![CDATA[<h2 id="了解html5的viewport"><a href="#了解html5的viewport" class="headerlink" title="了解html5的viewport"></a>了解html5的viewport</h2><blockquote>
+<p>在做移动端开发时，为了使移动端的页面在不同的手机上同样的大小来显示，我们可以将页面的宽度固定，然后获取设备的宽度，可以得到我们之前设定的宽度与设备宽度的比例，再使用HTML5新增的viewport来对页面进行缩放，并固定不允许用户再重新缩放。</p>
+</blockquote>
+<p>使用meta标签时，可以添加viewport(可视区窗口)属性:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0,user-scalable=0"</span> /&gt;</span>1</span><br></pre></td></tr></table></figure>
+
+<p>content中可填以下属性：</p>
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>width</td>
+<td>设置可视区的宽度，为一个正整数，使用字符串”width-device”表示设备宽度</td>
+</tr>
+<tr>
+<td>initial-scale</td>
+<td>设置页面的初始缩放值</td>
+</tr>
+<tr>
+<td>minimum-scale</td>
+<td>允许用户的最小缩放值</td>
+</tr>
+<tr>
+<td>maximum-scale</td>
+<td>允许用户的最大缩放值</td>
+</tr>
+<tr>
+<td>height</td>
+<td>设置可视区的高度，这个属性对我们并不重要，很少使用</td>
+</tr>
+<tr>
+<td>user-scalable</td>
+<td>是否允许用户进行缩放，值为”no”或”yes”, no 代表不允许，yes代表允许</td>
+</tr>
+<tr>
+<td>target-densitydpi</td>
+<td>值可以为一个数值或 high-dpi 、 medium-dpi、 low-dpi、 device-dpi 这几个字符串中的一个</td>
+</tr>
+</tbody></table>
+<p><strong>最后一个属性为安卓特有，并且安卓已经决定要废弃target-densitydpi 这个属性了，所以这个属性我们要避免进行使用 。</strong></p>
+<p>meta标签扩展:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- width=device-width //可视区宽等于设备宽 user-scalable=no禁止用户缩放，ios10无效  min/max 最小缩放比例和最大缩放比例--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"user-scalable=no,width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 强制x5内核竖屏显示(QQ/微信/QQ浏览器内置的内核就是x5内核) content="landscape"强制横屏 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"x5-orientation"</span> <span class="attr">content</span>=<span class="string">"portrait"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- x5内核浏览器全屏显示 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"x5-fullscreen"</span> <span class="attr">content</span>=<span class="string">"true"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- UC浏览器竖屏显示 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"screen-orientation"</span> <span class="attr">content</span>=<span class="string">"portrait"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- UC浏览器全屏显示 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"full-screen"</span> <span class="attr">content</span>=<span class="string">"yes"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 禁止识别电话号码和邮箱 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"format-detection"</span> <span class="attr">content</span>=<span class="string">"telephone=no,email=no"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="百分比适配"><a href="#百分比适配" class="headerlink" title="百分比适配"></a>百分比适配</h2><blockquote>
+<p>百分比适配是通过给元素设置百分比的宽度进行适配，由于高度是固定的在不同分辨率的设备上显示也会有所差异</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css"><span class="selector-tag">body</span>&#123;<span class="attribute">margin</span>: <span class="number">0</span>;&#125;</span></span><br><span class="line"><span class="css"><span class="selector-tag">div</span>&#123;<span class="attribute">width</span>: <span class="number">25%</span>;<span class="attribute">height</span>: <span class="number">100px</span>;<span class="attribute">float</span>: left;&#125;</span></span><br><span class="line"><span class="css"><span class="selector-class">.div1</span>&#123;<span class="attribute">background</span>: red;&#125;</span></span><br><span class="line"><span class="css"><span class="selector-class">.div2</span>&#123;<span class="attribute">background</span>: green;&#125;</span></span><br><span class="line"><span class="css"><span class="selector-class">.div3</span>&#123;<span class="attribute">background</span>: goldenrod;&#125;</span></span><br><span class="line"><span class="css"><span class="selector-class">.div4</span>&#123;<span class="attribute">background</span>: blue;&#125;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"div1"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"div2"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"div3"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"div4"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="viewport适配-推荐"><a href="#viewport适配-推荐" class="headerlink" title="viewport适配(推荐)"></a>viewport适配(推荐)</h2><blockquote>
+<p>通过js创建meta标签并动态计算缩放比例，使得每个设备的显示宽度统一</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="actionscript"><span class="comment">// alert(window.devicePixelRatio);//弹出设备的像素比</span></span></span><br><span class="line"><span class="actionscript"><span class="comment">// window.screen.availWidth 返回当前屏幕宽度(空白空间)</span></span></span><br><span class="line"><span class="actionscript"><span class="comment">// window.screen.availHeight 返回当前屏幕高度(空白空间)</span></span></span><br><span class="line"><span class="actionscript"><span class="comment">// window.screen.width 返回当前屏幕宽度(分辨率值)</span></span></span><br><span class="line"><span class="actionscript"><span class="comment">// window.screen.height 返回当前屏幕高度(分辨率值)</span></span></span><br><span class="line"><span class="actionscript"><span class="comment">// window.document.body.offsetHeight; 返回当前网页高度</span></span></span><br><span class="line"><span class="actionscript"><span class="comment">// window.document.body.offsetWidth; 返回当前网页宽度</span></span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> w=<span class="built_in">window</span>.screen.width;<span class="comment">//获取device-width</span></span></span><br><span class="line"><span class="actionscript">  <span class="keyword">var</span> targetW=<span class="number">320</span>;  <span class="comment">//把所有设备的宽度设置为320</span></span></span><br><span class="line"><span class="actionscript">  <span class="keyword">var</span> scale=w/targetW;  <span class="comment">//计算缩放比例</span></span></span><br><span class="line"><span class="javascript">  <span class="built_in">console</span>.log(scale);</span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> meta=<span class="built_in">document</span>.createElement(<span class="string">'meta'</span>);</span></span><br><span class="line"><span class="actionscript">  meta.name=<span class="string">'viewport'</span>;</span></span><br><span class="line"><span class="actionscript">  meta.content=<span class="string">'user-scalable=no, initial-scale='</span>+scale+<span class="string">',minimum-scale='</span>+scale+<span class="string">',maximum-scale='</span>+scale;</span></span><br><span class="line"><span class="javascript">  <span class="built_in">document</span>.head.appendChild(meta);</span></span><br><span class="line">&#125;)()</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="rem适配-推荐"><a href="#rem适配-推荐" class="headerlink" title="rem适配(推荐)"></a>rem适配(推荐)</h2><blockquote>
+<p>通过给根节点设置fontsize，来确定rem的值</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="actionscript">  <span class="comment">//rem适配</span></span></span><br><span class="line"><span class="javascript">  <span class="keyword">var</span> html=<span class="built_in">document</span>.documentElement;<span class="comment">//获取html</span></span></span><br><span class="line"><span class="actionscript">  <span class="keyword">var</span> hw=html.getBoundingClientRect().width;<span class="comment">//获取html的宽</span></span></span><br><span class="line"><span class="javascript">  <span class="built_in">console</span>.log(hw);</span></span><br><span class="line"><span class="actionscript">  html.style.fontSize=hw/<span class="number">20</span>+<span class="string">'px'</span>;</span></span><br><span class="line"><span class="actionscript">  <span class="comment">// 给html设置fantasize为html宽度/20，说明1rem=1/20页面的宽度，可以根据设计稿确定，好算就行</span></span></span><br><span class="line">&#125;)()</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>移动端</category>
+      </categories>
+      <tags>
+        <tag>-移动端</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>vue-router总结</title>
     <url>/vue-router%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<h2 id="前端路由和后端路由的区别"><a href="#前端路由和后端路由的区别" class="headerlink" title="前端路由和后端路由的区别"></a>前端路由和后端路由的区别</h2><ul>
@@ -271,9 +344,9 @@
         <category>博客搭建</category>
       </categories>
       <tags>
-        <tag>Github</tag>
         <tag>Hexo</tag>
         <tag>博客</tag>
+        <tag>Github</tag>
       </tags>
   </entry>
   <entry>
@@ -1051,9 +1124,9 @@
         <category>博客搭建</category>
       </categories>
       <tags>
-        <tag>Github</tag>
         <tag>Hexo</tag>
         <tag>博客</tag>
+        <tag>Github</tag>
       </tags>
   </entry>
 </search>
