@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.code7s.com/about/index.html</loc>
+    
+    <lastmod>2020-04-04T10:53:09.098Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.code7s.com/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%80%82%E9%85%8D/</loc>
     
     <lastmod>2020-04-01T06:51:25.030Z</lastmod>
@@ -19,13 +26,6 @@
     <loc>https://www.code7s.com/vue-router%E6%80%BB%E7%BB%93/</loc>
     
     <lastmod>2020-03-28T07:27:03.399Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.code7s.com/about/index.html</loc>
-    
-    <lastmod>2020-03-27T16:52:01.309Z</lastmod>
     
   </url>
   
@@ -135,14 +135,14 @@
   </url>
   
   <url>
-    <loc>https://www.code7s.com/2/</loc>
+    <loc>https://www.code7s.com/3/</loc>
     
     <lastmod>2019-11-14T11:34:09.147Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.code7s.com/3/</loc>
+    <loc>https://www.code7s.com/2/</loc>
     
     <lastmod>2019-11-14T11:34:09.147Z</lastmod>
     
