@@ -76,7 +76,7 @@
 
 
 
-  <meta name="keywords" content="Vue,组件">
+  <meta name="keywords" content="call,bind,apply">
 
 
 
@@ -87,18 +87,18 @@
 
 
 
-<meta name="description" content="组件注册12345678910111213//1.定义全局组件Vue.component(&apos;myComponent&apos;,Vue.extend(template:&apos;&amp;lt;div&amp;gt;xxxx&amp;lt;/div&amp;gt;&apos;))//这种写法相当于(此时会自动调用Vue.extend()方法)：Vue.component(&apos;myComponent&apos;，&amp;#123;template:&apos;&amp;lt;div&amp;gt;xx">
-<meta name="keywords" content="Vue,组件">
+<meta name="description" content="call()、bind()、apply()都是用来修改函数this指向的  先看下面例子： 123456789101112131415161718192021var person=&amp;#123;  name:&apos;leo&apos;,  age: 23,  sex: &apos;男&apos;&amp;#125;function fn(a,b)&amp;#123;  console.log(&apos;姓名：&apos;+this.name+&apos;年龄：&apos;+this.a">
+<meta name="keywords" content="call,bind,apply">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vue组件总结">
-<meta property="og:url" content="https://www.code7s.com/vue组件总结/index.html">
+<meta property="og:title" content="call、bind、apply的区别">
+<meta property="og:url" content="https://www.code7s.com/call、bind、apply的区别/index.html">
 <meta property="og:site_name" content="Code7s blog">
-<meta property="og:description" content="组件注册12345678910111213//1.定义全局组件Vue.component(&apos;myComponent&apos;,Vue.extend(template:&apos;&amp;lt;div&amp;gt;xxxx&amp;lt;/div&amp;gt;&apos;))//这种写法相当于(此时会自动调用Vue.extend()方法)：Vue.component(&apos;myComponent&apos;，&amp;#123;template:&apos;&amp;lt;div&amp;gt;xx">
+<meta property="og:description" content="call()、bind()、apply()都是用来修改函数this指向的  先看下面例子： 123456789101112131415161718192021var person=&amp;#123;  name:&apos;leo&apos;,  age: 23,  sex: &apos;男&apos;&amp;#125;function fn(a,b)&amp;#123;  console.log(&apos;姓名：&apos;+this.name+&apos;年龄：&apos;+this.a">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-03-25T14:46:41.511Z">
+<meta property="og:updated_time" content="2020-04-05T06:40:20.063Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vue组件总结">
-<meta name="twitter:description" content="组件注册12345678910111213//1.定义全局组件Vue.component(&apos;myComponent&apos;,Vue.extend(template:&apos;&amp;lt;div&amp;gt;xxxx&amp;lt;/div&amp;gt;&apos;))//这种写法相当于(此时会自动调用Vue.extend()方法)：Vue.component(&apos;myComponent&apos;，&amp;#123;template:&apos;&amp;lt;div&amp;gt;xx">
+<meta name="twitter:title" content="call、bind、apply的区别">
+<meta name="twitter:description" content="call()、bind()、apply()都是用来修改函数this指向的  先看下面例子： 123456789101112131415161718192021var person=&amp;#123;  name:&apos;leo&apos;,  age: 23,  sex: &apos;男&apos;&amp;#125;function fn(a,b)&amp;#123;  console.log(&apos;姓名：&apos;+this.name+&apos;年龄：&apos;+this.a">
 
 
 
@@ -142,13 +142,13 @@
 
 
 
-  <link rel="canonical" href="https://www.code7s.com/vue组件总结/">
+  <link rel="canonical" href="https://www.code7s.com/call、bind、apply的区别/">
 
 
 
 
 
-  <title>vue组件总结 | Code7s blog</title>
+  <title>call、bind、apply的区别 | Code7s blog</title>
   
 
 
@@ -327,7 +327,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://www.code7s.com/vue组件总结/">
+    <link itemprop="mainEntityOfPage" href="https://www.code7s.com/call、bind、apply的区别/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="余其胜">
@@ -344,7 +344,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">vue组件总结</h2>
+          <h2 class="post-title" itemprop="name headline">call、bind、apply的区别</h2>
         
 
         <div class="post-meta">
@@ -356,8 +356,8 @@
               
                 <span class="post-meta-item-text"> </span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-25T22:40:13+08:00">
-                2020-03-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-05T14:36:21+08:00">
+                2020-04-05
               </time>
             
 
@@ -379,8 +379,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Vue/" itemprop="url" rel="index">
-                    <span itemprop="name">Vue</span>
+                  <a href="/categories/javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">javascript</span>
                   </a>
                 </span>
 
@@ -397,8 +397,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/vue组件总结/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/vue组件总结/" itemprop="commentCount"></span>
+                <a href="/call、bind、apply的区别/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/call、bind、apply的区别/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -431,47 +431,18 @@
       
 
       
-        <h2 id="组件注册"><a href="#组件注册" class="headerlink" title="组件注册"></a>组件注册</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.定义全局组件</span></span><br><span class="line">Vue.component(<span class="string">'myComponent'</span>,Vue.extend(template:<span class="string">'&lt;div&gt;xxxx&lt;/div&gt;'</span>))</span><br><span class="line"><span class="comment">//这种写法相当于(此时会自动调用Vue.extend()方法)：</span></span><br><span class="line">Vue.component(<span class="string">'myComponent'</span>，&#123;<span class="attr">template</span>:<span class="string">'&lt;div&gt;xxxx&lt;/div&gt;'</span>&#125;)</span><br><span class="line"><span class="comment">//2.定义私有组件</span></span><br><span class="line"><span class="keyword">var</span> vm=<span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el:<span class="string">'#app'</span>,</span><br><span class="line">  components:&#123;</span><br><span class="line">    ‘myComponent’:&#123;</span><br><span class="line">      template:<span class="string">'&lt;div&gt;xxxx&lt;/div&gt;'</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p><strong>注意：如果组件名称使用了驼峰命名，则在引用组件的时候，需要把大写的字母改为小写，同时两个单词之间使用 - 链接；</strong></p>
-<h2 id="父子组件传值"><a href="#父子组件传值" class="headerlink" title="父子组件传值"></a>父子组件传值</h2><h3 id="1-父组件向子组件传值"><a href="#1-父组件向子组件传值" class="headerlink" title="1.父组件向子组件传值"></a>1.父组件向子组件传值</h3><blockquote>
-<p>父组件通过属性传值给子组件，子组件使用props接收值。</p>
+        <blockquote>
+<p>call()、bind()、apply()都是用来修改函数this指向的</p>
 </blockquote>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">mycom</span> <span class="attr">:title</span>=<span class="string">"info"</span>&gt;</span><span class="tag">&lt;/<span class="name">mycom</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">  <span class="keyword">var</span> vm=<span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">    el:<span class="string">'#app'</span>,</span></span><br><span class="line">    data:&#123;</span><br><span class="line"><span class="actionscript">      info:<span class="string">'父组件的数据'</span></span></span><br><span class="line">    &#125;,</span><br><span class="line">    components:&#123;</span><br><span class="line"><span class="actionscript">      <span class="string">'mycom'</span>:&#123;</span></span><br><span class="line"><span class="actionscript">        props:[<span class="string">'title'</span>],</span></span><br><span class="line"><span class="handlebars"><span class="xml">        template:"<span class="tag">&lt;<span class="name">div</span>&gt;</span></span><span class="template-variable">&#123;&#123;title&#125;&#125;</span><span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span>"</span></span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>先看下面例子：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person=&#123;</span><br><span class="line">  name:<span class="string">'leo'</span>,</span><br><span class="line">  age: <span class="number">23</span>,</span><br><span class="line">  sex: <span class="string">'男'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'姓名：'</span>+<span class="keyword">this</span>.name+<span class="string">'年龄：'</span>+<span class="keyword">this</span>.age+<span class="string">'从'</span>+a+<span class="string">'到'</span>+b);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// call</span></span><br><span class="line">fn.call(person,<span class="string">'南昌'</span>,<span class="string">'武汉'</span>)</span><br><span class="line"><span class="comment">// 姓名：leo年龄：23从南昌到武汉</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// bind</span></span><br><span class="line">fn.bind(person,<span class="string">'北京'</span>,<span class="string">'上海'</span>)()</span><br><span class="line"><span class="comment">//姓名：leo年龄：23从北京到上海</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// apply</span></span><br><span class="line">fn.apply(person,[<span class="string">'杭州'</span>, <span class="string">'深圳'</span>])</span><br><span class="line"><span class="comment">//姓名：leo年龄：23从杭州到深圳</span></span><br><span class="line">fn.apply(person,<span class="string">'杭州'</span>,<span class="string">'深圳'</span>)</span><br><span class="line"><span class="comment">//Uncaught TypeError: CreateListFromArrayLike called on non-object</span></span><br></pre></td></tr></table></figure>
 
-<p><strong>注意：</strong></p>
-<p><strong>1.父组件传值时，是在子组件引用的元素上添加属性，props接受的是属性名而不是属性值，使用时也同理。</strong></p>
-<p><strong>2.如果父组件传值时属性名是‘my-data’这种带横杠的，则子组件在用props接收时需要写成驼峰命名‘myData’</strong></p>
-<p><strong>3.props可以接收字符串、数字、布尔值、数组和对象几种类型的值</strong></p>
-<h3 id="2-子组件向父组件传值"><a href="#2-子组件向父组件传值" class="headerlink" title="2.子组件向父组件传值"></a>2.子组件向父组件传值</h3><blockquote>
-<p>子组件通过自定义事件的方式传值给父组件</p>
-</blockquote>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123;num&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">mycom</span> @<span class="attr">change99</span>=<span class="string">'fn($event)'</span>&gt;</span><span class="tag">&lt;/<span class="name">mycom</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">  <span class="keyword">var</span> vm=<span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">    el:<span class="string">'#app'</span>,</span></span><br><span class="line">    data:&#123;</span><br><span class="line">      num:88</span><br><span class="line">    &#125;,</span><br><span class="line">    methods:&#123;</span><br><span class="line">      fn(n)&#123;</span><br><span class="line"><span class="actionscript">        <span class="keyword">this</span>.parnum=n</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    components:&#123;</span><br><span class="line"><span class="actionscript">      <span class="string">'mycom'</span>:&#123;</span></span><br><span class="line">        template:`</span><br><span class="line"><span class="handlebars"><span class="xml">        <span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">          <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"$emit('change99',99)"</span>&gt;</span>按钮<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span></span><br><span class="line">        `</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>注意：</strong></p>
-<p><strong>1.子组件触发事件时，通过$emit(funName,arg)给父组件传递参数,$emit的第一个参数是子组件引用时添加的自定义事件名，后面的参数是给父组件传递的数据</strong></p>
-<p><strong>2.父组件需要通过$event接收数据</strong></p>
-<h3 id="非父子组件间传值"><a href="#非父子组件间传值" class="headerlink" title="非父子组件间传值"></a>非父子组件间传值</h3><blockquote>
-<ol>
-<li><p>单独的事件中心管理组件中的通信</p>
-<p>new Vue()</p>
-</li>
-<li><p>监听事件与销毁事件</p>
-<p>$on、$off</p>
-</li>
-<li><p>触发事件</p>
-<p>$emit</p>
-</li>
-</ol>
-</blockquote>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- Tom组件 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">test-tom</span>&gt;</span><span class="tag">&lt;/<span class="name">test-tom</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- jack组件 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">test-jack</span>&gt;</span><span class="tag">&lt;/<span class="name">test-jack</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"handle"</span>&gt;</span>销毁事件<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">  <span class="comment">//提供事件中心,组件之间的通欣必须经过事件中心</span></span></span><br><span class="line"><span class="actionscript">  <span class="keyword">var</span> hub=<span class="keyword">new</span> Vue();</span></span><br><span class="line"><span class="actionscript">  Vue.component(<span class="string">'test-tom'</span>,&#123;</span></span><br><span class="line">    data()&#123;</span><br><span class="line"><span class="actionscript">      <span class="keyword">return</span>&#123;</span></span><br><span class="line">        num:0</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    template: `</span><br><span class="line"><span class="handlebars"><span class="xml">      <span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>Tom:</span><span class="template-variable">&#123;&#123;num&#125;&#125;</span><span class="xml"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">        <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"handle"</span>&gt;</span>改变jack<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span></span><br><span class="line">    `,</span><br><span class="line">    methods:&#123;</span><br><span class="line">      handle()&#123;</span><br><span class="line"><span class="actionscript">        <span class="comment">//触发jack的事件</span></span></span><br><span class="line"><span class="actionscript">        hub.$emit(<span class="string">'jack-event'</span>,<span class="number">1</span>)</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    mounted()&#123;</span><br><span class="line"><span class="actionscript">      <span class="comment">// 事件监听</span></span></span><br><span class="line"><span class="actionscript">      hub.$on(<span class="string">'tom-event'</span>,(val)=&gt;&#123;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">this</span>.num+=val;</span></span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line"><span class="actionscript">  Vue.component(<span class="string">'test-jack'</span>,&#123;</span></span><br><span class="line">    data()&#123;</span><br><span class="line"><span class="actionscript">      <span class="keyword">return</span>&#123;</span></span><br><span class="line">        num:0</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    template: `</span><br><span class="line"><span class="handlebars"><span class="xml">      <span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>Jack:</span><span class="template-variable">&#123;&#123;num&#125;&#125;</span><span class="xml"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">        <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">"handle"</span>&gt;</span>改变tom<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span></span><br><span class="line">    `,</span><br><span class="line">    methods:&#123;</span><br><span class="line">      handle()&#123;</span><br><span class="line"><span class="actionscript">        <span class="comment">//触发Tom的事件</span></span></span><br><span class="line"><span class="actionscript">        hub.$emit(<span class="string">'tom-event'</span>,<span class="number">2</span>)</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    mounted()&#123;</span><br><span class="line"><span class="actionscript">      <span class="comment">//事件监听</span></span></span><br><span class="line"><span class="actionscript">      hub.$on(<span class="string">'jack-event'</span>,(val)=&gt;&#123;</span></span><br><span class="line"><span class="actionscript">        <span class="keyword">this</span>.num+=val;</span></span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line"><span class="actionscript">  <span class="keyword">var</span> vm=<span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">    el:<span class="string">'#app'</span>,</span></span><br><span class="line">    data:&#123;&#125;,</span><br><span class="line">    methods:&#123;</span><br><span class="line">      handle()&#123;</span><br><span class="line"><span class="actionscript">        <span class="comment">// 销毁事件,销毁后事件不再可用</span></span></span><br><span class="line"><span class="actionscript">        hub.$off(<span class="string">'tom-event'</span>);</span></span><br><span class="line"><span class="actionscript">        hub.$off(<span class="string">'jack-event'</span>);</span></span><br><span class="line">      &#125;		</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="组件插槽"><a href="#组件插槽" class="headerlink" title="组件插槽"></a>组件插槽</h2><blockquote>
-<p>父组件向子组件传递内容</p>
-</blockquote>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">temp</span>&gt;</span>晴<span class="tag">&lt;/<span class="name">temp</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">temp</span>&gt;</span>多云<span class="tag">&lt;/<span class="name">temp</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">temp</span>&gt;</span>小雪<span class="tag">&lt;/<span class="name">temp</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">  Vue.component(<span class="string">'temp'</span>,&#123;</span></span><br><span class="line">    template:`</span><br><span class="line"><span class="handlebars"><span class="xml">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span></span><br><span class="line">      今天天气是:</span><br><span class="line"><span class="handlebars"><span class="xml">      <span class="tag">&lt;<span class="name">slot</span>&gt;</span><span class="tag">&lt;/<span class="name">slot</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span></span><br><span class="line">    `</span><br><span class="line">  &#125;)</span><br><span class="line"><span class="actionscript">  <span class="keyword">var</span> vm=<span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">    el:<span class="string">'#app'</span></span></span><br><span class="line">  &#125;)</span><br><span class="line">	/* 显示效果是：		 </span><br><span class="line">  今天天气是: 晴</span><br><span class="line">  今天天气是: 多云</span><br><span class="line">  今天天气是: 小雪*/</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>注意：组件模版中使用插槽必须是slot标签</strong></p>
+<p>从上面我们可以看出：</p>
+<p>call:    函数执行时的this指向call的第一个参数，其它参数作为传参，call()会立即执行函数</p>
+<p>bind:    返回一个新的函数，可以改this指向但不会立即执行</p>
+<p><strong>注意：bind生成新函数之后不能再次bind修改指向,bind如果传入的不是一个对象则会调用相对的构造函数进行隐式类型转换</strong></p>
+<p>apply: 所有参数都必须放在一个数组里面传进去,它只接受第二个参数为数组</p>
+<p>总结：call和bind用法相同，区别就是前者会立即执行函数，而后者会生成个新函数，需要自己手动调用； apply和前两者的传参方式不同，前两者传递的是参数列表，而它只能传递一个参数数组</p>
 
       
     </div>
@@ -526,8 +497,8 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Vue/" rel="tag"><i class="fa fa-tag"></i>
-Vue</a>
+            <a href="/tags/javascript/" rel="tag"><i class="fa fa-tag"></i>
+javascript</a>
           
         </div>
       
@@ -555,8 +526,8 @@ Vue</a>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/iterm2终端配置/" rel="next" title="iterm2终端配置">
-                <i class="fa fa-chevron-left"></i> iterm2终端配置
+              <a href="/移动端适配/" rel="next" title="移动端适配">
+                <i class="fa fa-chevron-left"></i> 移动端适配
               </a>
             
           </div>
@@ -564,10 +535,6 @@ Vue</a>
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/Promise/" rel="prev" title="Promise总结">
-                Promise总结 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -622,17 +589,8 @@ Vue</a>
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -710,22 +668,6 @@ Vue</a>
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#组件注册"><span class="nav-number">1.</span> <span class="nav-text">组件注册</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#父子组件传值"><span class="nav-number">2.</span> <span class="nav-text">父子组件传值</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-父组件向子组件传值"><span class="nav-number">2.1.</span> <span class="nav-text">1.父组件向子组件传值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-子组件向父组件传值"><span class="nav-number">2.2.</span> <span class="nav-text">2.子组件向父组件传值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非父子组件间传值"><span class="nav-number">2.3.</span> <span class="nav-text">非父子组件间传值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组件插槽"><span class="nav-number">3.</span> <span class="nav-text">组件插槽</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
