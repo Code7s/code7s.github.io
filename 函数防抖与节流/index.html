@@ -76,7 +76,7 @@
 
 
 
-  <meta name="keywords" content="Code7s,余其胜,个人博客,web前端,移动端,技术分享">
+  <meta name="keywords" content="防抖,节流,性能优化">
 
 
 
@@ -87,17 +87,18 @@
 
 
 
-<meta name="description" content="天行健，君子以自强不息地势坤，君子以厚德载物">
-<meta name="keywords" content="余其胜,Code7s,个人博客,web前端,移动端,技术分享">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Code7s blog">
-<meta property="og:url" content="https://www.code7s.com/tags/Mac/index.html">
+<meta name="description" content="函数防抖和函数节流是优化高频率执行js代码的一种手段，js中的一些事件如浏览器的resize、scroll，鼠标的mousemove、mouseover，input输入框的keypress等事件在触发时，会不断地调用绑定在事件上的回调函数，极大地浪费资源，降低前端性能。为了优化体验，需要对这类事件进行调用次数的限制。  我们尝试完成一个需求：当鼠标在div上移动时，使它内部的数值不断+1 123">
+<meta name="keywords" content="防抖,节流,性能优化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="函数防抖与节流">
+<meta property="og:url" content="https://www.code7s.com/函数防抖与节流/index.html">
 <meta property="og:site_name" content="Code7s blog">
-<meta property="og:description" content="天行健，君子以自强不息地势坤，君子以厚德载物">
+<meta property="og:description" content="函数防抖和函数节流是优化高频率执行js代码的一种手段，js中的一些事件如浏览器的resize、scroll，鼠标的mousemove、mouseover，input输入框的keypress等事件在触发时，会不断地调用绑定在事件上的回调函数，极大地浪费资源，降低前端性能。为了优化体验，需要对这类事件进行调用次数的限制。  我们尝试完成一个需求：当鼠标在div上移动时，使它内部的数值不断+1 123">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-04-06T08:00:10.485Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Code7s blog">
-<meta name="twitter:description" content="天行健，君子以自强不息地势坤，君子以厚德载物">
+<meta name="twitter:title" content="函数防抖与节流">
+<meta name="twitter:description" content="函数防抖和函数节流是优化高频率执行js代码的一种手段，js中的一些事件如浏览器的resize、scroll，鼠标的mousemove、mouseover，input输入框的keypress等事件在触发时，会不断地调用绑定在事件上的回调函数，极大地浪费资源，降低前端性能。为了优化体验，需要对这类事件进行调用次数的限制。  我们尝试完成一个需求：当鼠标在div上移动时，使它内部的数值不断+1 123">
 
 
 
@@ -141,13 +142,13 @@
 
 
 
-  <link rel="canonical" href="https://www.code7s.com/tags/Mac/">
+  <link rel="canonical" href="https://www.code7s.com/函数防抖与节流/">
 
 
 
 
 
-  <title>标签: Mac | Code7s blog</title>
+  <title>函数防抖与节流 | Code7s blog</title>
   
 
 
@@ -176,7 +177,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -312,78 +313,261 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h2>Mac<small>标签</small>
-        </h2>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://www.code7s.com/函数防抖与节流/">
 
-      <h3 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="余其胜">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/yu.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Code7s blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/iterm2终端配置/" itemprop="url">
-              
-                <span itemprop="name">iterm2终端配置</span>
-              
-            </a>
         
-      </h3>
+          <h2 class="post-title" itemprop="name headline">函数防抖与节流</h2>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-11-22T04:26:40+08:00" content="2019-11-22">
-          11-22
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text"> </span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-06T15:47:38+08:00">
+                2020-04-06
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text"> </span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/javascript/" itemprop="url" rel="index">
+                    <span itemprop="name">javascript</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/函数防抖与节流/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/函数防抖与节流/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-eye"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
+      
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <blockquote>
+<p>函数防抖和函数节流是优化高频率执行js代码的一种手段，js中的一些事件如浏览器的resize、scroll，鼠标的mousemove、mouseover，input输入框的keypress等事件在触发时，会不断地调用绑定在事件上的回调函数，极大地浪费资源，降低前端性能。为了优化体验，需要对这类事件进行调用次数的限制。</p>
+</blockquote>
+<p>我们尝试完成一个需求：当鼠标在div上移动时，使它内部的数值不断+1</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css"><span class="selector-id">#box</span> &#123;</span></span><br><span class="line">  width: 100%;</span><br><span class="line">  height: 400px;</span><br><span class="line">  background-color: royalblue;</span><br><span class="line">  font-size: 100px;</span><br><span class="line"><span class="css">  <span class="selector-tag">color</span>: <span class="selector-id">#fff</span>;</span></span><br><span class="line">  text-align: center;</span><br><span class="line">  line-height: 400px;</span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"box"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript"><span class="comment">// 定义一个初始值</span></span></span><br><span class="line"><span class="javascript"><span class="keyword">let</span> num=<span class="number">1</span>;</span></span><br><span class="line"><span class="javascript"><span class="keyword">let</span> oDiv=<span class="built_in">document</span>.getElementById(<span class="string">'box'</span>)</span></span><br><span class="line"><span class="actionscript"><span class="comment">// 事件函数</span></span></span><br><span class="line"><span class="actionscript"><span class="function"><span class="keyword">function</span> <span class="title">handle</span><span class="params">()</span></span>&#123;</span></span><br><span class="line">  oDiv.innerHTML = num++</span><br><span class="line"><span class="javascript">  <span class="built_in">console</span>.log(num)</span></span><br><span class="line">&#125;</span><br><span class="line">oDiv.onmousemove = handle</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/Mac下如何修改hosts文件/" itemprop="url">
-              
-                <span itemprop="name">Mac下如何修改hosts文件</span>
-              
-            </a>
-        
-      </h3>
+<p>作出上面例子我们发现：在移动鼠标的时候,会不断的触发handle函数导致资源浪费，如果此时又需搭配异步请求的话很容易发生阻塞，有没有什么方法能够让事件触发的频率不那么快呢？函数的防抖和节流就是解决这种事件的方案！</p>
+<h2 id="防抖"><a href="#防抖" class="headerlink" title="防抖"></a>防抖</h2><blockquote>
+<p>在事件被触发n秒后再执行回调，如果在这n秒内又被触发，则重新计时</p>
+</blockquote>
+<p>以上面的代码为例，我们将js部分改为：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> num = <span class="number">1</span></span><br><span class="line"><span class="keyword">let</span> oDiv = <span class="built_in">document</span>.getElementById(<span class="string">'box'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 事件函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handle</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  oDiv.innerHTML = num++</span><br><span class="line">  <span class="built_in">console</span>.log(num);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 防抖函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">debounce</span>(<span class="params">fn, time</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 定义一个定时器</span></span><br><span class="line">  <span class="keyword">let</span> play;</span><br><span class="line">  <span class="comment">// 为了确保下面操作的是同一个定时器，这里我们需要使用闭包</span></span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 如果这个定时器已经存在就清除它</span></span><br><span class="line">    <span class="keyword">if</span> (play) clearTimeout(play)</span><br><span class="line">    play = setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="comment">// 这里如果调用的函数不需传参可以直接fn(),如果需要传递参数则需搭配apply方法</span></span><br><span class="line">      fn.apply(<span class="keyword">this</span>,<span class="built_in">arguments</span>)</span><br><span class="line">    &#125;, time)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 鼠标移动停止后1s触发</span></span><br><span class="line">oDiv.onmousemove = debounce(handle, <span class="number">1000</span>)</span><br></pre></td></tr></table></figure>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-11-18T15:15:31+08:00" content="2019-11-18">
-          11-18
-        </time>
-      </div>
+<h2 id="节流"><a href="#节流" class="headerlink" title="节流"></a>节流</h2><blockquote>
+<p>在一段时间内，只会执行一次函数。</p>
+</blockquote>
+<p>同样以上面的代码为例，我们将js部分改为：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> num = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> oDiv = <span class="built_in">document</span>.getElementById(<span class="string">'box'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 事件函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handle</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  oDiv.innerHTML = num++;</span><br><span class="line">  <span class="built_in">console</span>.log(num);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 节流函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">throttle</span>(<span class="params">fn, time</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> play;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 如果定时器存在，直接返回什么都不做</span></span><br><span class="line">    <span class="keyword">if</span> (play) <span class="keyword">return</span></span><br><span class="line">    play = setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      fn.apply(<span class="keyword">this</span>,<span class="built_in">arguments</span>)</span><br><span class="line">      <span class="comment">// 执行完之后把play设置为null方便下次执行</span></span><br><span class="line">      play = <span class="literal">null</span>;</span><br><span class="line">    &#125;, time)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 鼠标不管怎么移动，触发handle函数的间隔最低为1s</span></span><br><span class="line">oDiv.onmousemove = throttle(handle, <span class="number">1000</span>)</span><br></pre></td></tr></table></figure>
 
-    </header>
-  </article>
+<p>上面是由定时器完成的节流，我们也可以使用时间戳的方式实现：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> num = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> oDiv = <span class="built_in">document</span>.getElementById(<span class="string">'box'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 事件函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handle</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  oDiv.innerHTML = num++;</span><br><span class="line">  <span class="built_in">console</span>.log(num);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 节流函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">throttle</span>(<span class="params">fn, time</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> t=<span class="number">0</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> now=<span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">    <span class="comment">// 当前时间-上次触发事件的时间&gt;间隔时间时才允许调用函数</span></span><br><span class="line">    <span class="keyword">if</span>(now-t&gt;time)&#123;</span><br><span class="line">      fn(<span class="keyword">this</span>,<span class="built_in">arguments</span>)</span><br><span class="line">      <span class="comment">// 将变量t赋值为最后一次触发事件的时间</span></span><br><span class="line">      t=now</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">oDiv.onmousemove = throttle(handle, <span class="number">2000</span>)</span><br></pre></td></tr></table></figure>
 
 
       
     </div>
+    
+    
+    
 
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/uploads/wx_friend.png" alt="余其胜 wechat" style="width: 200px; max-width: 100%;">
+    <div>有问题请扫上方二维码加我微信或者在下方留言哦!</div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/uploads/wechatpay.jpg" alt="余其胜 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/uploads/alipay.jpg" alt="余其胜 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/javascript/" rel="tag"><i class="fa fa-tag"></i>
+javascript</a>
+          
+            <a href="/tags/性能优化/" rel="tag"><i class="fa fa-tag"></i>
+性能优化</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div id="needsharebutton-postbottom">
+            <span class="btn">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+            </span>
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/call、bind、apply的区别/" rel="next" title="call、bind、apply的区别">
+                <i class="fa fa-chevron-left"></i> call、bind、apply的区别
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -391,6 +575,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -411,8 +602,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -490,6 +690,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#防抖"><span class="nav-number">1.</span> <span class="nav-text">防抖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#节流"><span class="nav-number">2.</span> <span class="nav-text">节流</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -644,6 +860,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
