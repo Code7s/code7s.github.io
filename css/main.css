@@ -1825,8 +1825,8 @@ pre .javascript .function {
   color: #49b1f5;
 }
 .post-body blockquote {
-  border-left: 3px solid #49b1f5;
-  background-color: #d0eafb;
+  border-left: 3px solid #f9501c;
+  background-color: #fff1e7;
   color: #777;
 }
 .post-meta a {
@@ -2000,7 +2000,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #62c95e;
+  background: #ff6c2b;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3192,7 +3192,7 @@ pre .javascript .function {
   }
 }
 code {
-  background: #f8f8f8;
+  background: #fff1e6;
   margin: 2px;
   color: #d63200;
 }

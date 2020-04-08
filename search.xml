@@ -1,6 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>prototype和__proto__的区别和关系</title>
+    <url>/prototype%E5%92%8Cproto%E7%9A%84%E5%8C%BA%E5%88%AB%E5%92%8C%E5%85%B3%E7%B3%BB/</url>
+    <content><![CDATA[<blockquote>
+<p>我在学习js的原型和继承的时，总是搞不清<code>prototype</code>和<code>__proto__</code>的区别，于是就来写这篇文章来总结一下，其实要记住他们的区别只需记住一句话：</p>
+<p><strong><code>prototype</code>是在构造函数上的，而<code>__proto__</code>是在对象上的。</strong>所以下面我们就分别称为<code>fn.prototype</code>和<code>obj.__proto__</code></p>
+<p>那它们之间又有什么联系呢？我们通过下面例子分析</p>
+</blockquote>
+<h2 id="如何创建一个对象？"><a href="#如何创建一个对象？" class="headerlink" title="如何创建一个对象？"></a>如何创建一个对象？</h2><h3 id="1-new-Object"><a href="#1-new-Object" class="headerlink" title="1. new Object()"></a>1. new Object()</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj=<span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line"><span class="built_in">console</span>.log(obj.__proto__)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype);</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-字面量创建对象"><a href="#2-字面量创建对象" class="headerlink" title="2.字面量创建对象"></a>2.字面量创建对象</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj=&#123;&#125;</span><br><span class="line"><span class="built_in">console</span>.log(obj.__proto__)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype);</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-Object-create"><a href="#3-Object-create" class="headerlink" title="3.Object.create()"></a>3.Object.create()</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;<span class="attr">a</span>:<span class="number">2</span>&#125;</span><br><span class="line"><span class="comment">// 这里的o是以obj为原型创建的对象</span></span><br><span class="line"><span class="keyword">var</span> o = <span class="built_in">Object</span>.create(obj)</span><br><span class="line"><span class="keyword">var</span> o2 = <span class="built_in">Object</span>.create(<span class="literal">null</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// o的__proto__是obj,也就是说 o.__proto__===obj</span></span><br><span class="line"><span class="built_in">console</span>.log(o.__proto__.__proto__)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype)</span><br><span class="line"><span class="built_in">console</span>.log(o2); <span class="comment">//No properties</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-构造函数创建对象"><a href="#4-构造函数创建对象" class="headerlink" title="4.构造函数创建对象"></a>4.构造函数创建对象</h3><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">person</span>(<span class="params">name,age</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.name=name</span><br><span class="line">  <span class="keyword">this</span>.age=age</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> o=<span class="keyword">new</span> person(<span class="string">"jack"</span>,<span class="number">23</span>)</span><br><span class="line"><span class="built_in">console</span>.log(o.__proto__)</span><br><span class="line"><span class="built_in">console</span>.log(person.prototype)</span><br></pre></td></tr></table></figure>
+
+<p>当然还有一些别的方法可以创建对象，实现原理都大同小异我就不一一列举出来了</p>
+<p>##总结</p>
+<p>把上面四个例子打印后我们可以发现：</p>
+<p><strong>1.创建对象的本质都是通过构造函数来创建的，例如前三种创建方法它们的构造函数就是<code>Object()</code>本身</strong></p>
+<p><strong>2.几乎所有创建出来的对象都有<code>__proto__</code>属性，为什么是“几乎”呢？因为如果一个对象是由 <code>Object.create(null)</code> 创建的话，它是没有<code>__proto__</code>属性的</strong></p>
+<p><strong>3. <code>fn.prototype</code>它也是一个对象，它也有<code>__proto__</code>属性</strong></p>
+<p><strong>4.每个对象的<code>__proto__</code>属性都指向这个对象构造函数的<code>prototype</code>属性，也就是说obj.__proto__===这个obj构造函数的prototype，所以我们在<code>fn.protostype</code>上添加新的属性和方法时，可以继承给所有以fn构造出来的对象上</strong></p>
+]]></content>
+      <categories>
+        <category>javascript</category>
+      </categories>
+      <tags>
+        <tag>javascript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>函数防抖与节流</title>
     <url>/%E5%87%BD%E6%95%B0%E9%98%B2%E6%8A%96%E4%B8%8E%E8%8A%82%E6%B5%81/</url>
     <content><![CDATA[<blockquote>
@@ -401,9 +432,9 @@
         <category>博客搭建</category>
       </categories>
       <tags>
+        <tag>Github</tag>
         <tag>Hexo</tag>
         <tag>博客</tag>
-        <tag>Github</tag>
       </tags>
   </entry>
   <entry>
@@ -1181,9 +1212,9 @@
         <category>博客搭建</category>
       </categories>
       <tags>
+        <tag>Github</tag>
         <tag>Hexo</tag>
         <tag>博客</tag>
-        <tag>Github</tag>
       </tags>
   </entry>
 </search>

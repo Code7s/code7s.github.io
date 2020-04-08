@@ -1,3 +1,4 @@
+https://www.code7s.com/prototype和proto的区别和关系/
 https://www.code7s.com/函数防抖与节流/
 https://www.code7s.com/call、bind、apply的区别/
 https://www.code7s.com/移动端适配/
